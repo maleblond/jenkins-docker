@@ -7,3 +7,11 @@ services:
     ports:
       - 8080:8080
       - 50000:50000
+
+  jenkins-slave:
+    image: jenkinsci/jnlp-slave:3.19-1-alpine
+    environment:
+      - JENKINS_SECRET=4084502acc52ab8695b301026610040a08a19487f3d97dffaa0cb83e8632ab72
+      - JENKINS_AGENT_NAME=test-slave
+      - JENKINS_AGENT_WORKDIR=.
+      - JENKINS_URL=http://jenkins:8080
